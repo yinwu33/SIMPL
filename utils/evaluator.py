@@ -3,7 +3,7 @@ import os
 import numpy as np
 import torch
 import matplotlib.pyplot as plt
-from argoverse.evaluation.eval_forecasting import get_displacement_errors_and_miss_rate
+# from argoverse.evaluation.eval_forecasting import get_displacement_errors_and_miss_rate
 
 
 class TrajPredictionEvaluator():
@@ -45,22 +45,22 @@ class TrajPredictionEvaluator():
             gt_dict[seq_id] = traj_fut[j]
             prob_dict[seq_id] = prob_pred[j]
 
-        # # Max #guesses (K): 1
-        res_1 = get_displacement_errors_and_miss_rate(
-            pred_dict, gt_dict, 1, self.config['g_pred_len'], miss_threshold=self.config['miss_thres'], forecasted_probabilities=prob_dict)
-        # # Max #guesses (K): 6
-        res_k = get_displacement_errors_and_miss_rate(
-            pred_dict, gt_dict, 6, self.config['g_pred_len'], miss_threshold=self.config['miss_thres'], forecasted_probabilities=prob_dict)
+        # # # Max #guesses (K): 1
+        # res_1 = get_displacement_errors_and_miss_rate(
+        #     pred_dict, gt_dict, 1, self.config['g_pred_len'], miss_threshold=self.config['miss_thres'], forecasted_probabilities=prob_dict)
+        # # # Max #guesses (K): 6
+        # res_k = get_displacement_errors_and_miss_rate(
+        #     pred_dict, gt_dict, 6, self.config['g_pred_len'], miss_threshold=self.config['miss_thres'], forecasted_probabilities=prob_dict)
 
         eval_out = {}
-        eval_out['minade_1'] = res_1['minADE']
-        eval_out['minfde_1'] = res_1['minFDE']
-        eval_out['mr_1'] = res_1['MR']
-        eval_out['brier_fde_1'] = res_1['brier-minFDE']
+        # eval_out['minade_1'] = res_1['minADE']
+        # eval_out['minfde_1'] = res_1['minFDE']
+        # eval_out['mr_1'] = res_1['MR']
+        # eval_out['brier_fde_1'] = res_1['brier-minFDE']
 
-        eval_out['minade_k'] = res_k['minADE']
-        eval_out['minfde_k'] = res_k['minFDE']
-        eval_out['mr_k'] = res_k['MR']
-        eval_out['brier_fde_k'] = res_k['brier-minFDE']
+        # eval_out['minade_k'] = res_k['minADE']
+        # eval_out['minfde_k'] = res_k['minFDE']
+        # eval_out['mr_k'] = res_k['MR']
+        # eval_out['brier_fde_k'] = res_k['brier-minFDE']
 
         return eval_out
