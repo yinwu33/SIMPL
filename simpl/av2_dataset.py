@@ -63,7 +63,8 @@ class AV2Dataset(Dataset):
         self.dataset_len = len(self.dataset_files)
 
     def __len__(self):
-        return self.dataset_len
+        # return self.dataset_len
+        return 256  # ! debug purpose
 
     def __getitem__(self, idx):
         df = pd.read_pickle(self.dataset_files[idx])

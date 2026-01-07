@@ -15,9 +15,9 @@ from torch.nn import functional as F
 def set_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
-    torch.backends.cudnn.deterministic = False
+    torch.backends.cudnn.deterministic = True
     # torch.use_deterministic_algorithms(True)
-    # torch.backends.cudnn.benchmark = True
+    torch.backends.cudnn.benchmark = True
     np.random.seed(seed)
     random.seed(seed)
 
