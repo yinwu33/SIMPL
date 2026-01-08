@@ -36,6 +36,8 @@ Epoch 3
 The mini baseline with one epoch: 
 
 * train loss: ~6.57
-* val loss: 7.47
+* val loss: ~7.4
+* train time: 0.22
+* val time: 0.06
 
 Not the the cuda is not deterministic, so results may slightly different.
